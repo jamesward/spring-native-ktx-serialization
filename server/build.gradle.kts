@@ -19,12 +19,20 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
+
+    implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
+    implementation("io.r2dbc:r2dbc-postgresql")
 }
 
 java {
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(11))
     }
+}
+
+// add the test stuff to the bootRun classpath
+tasks.withType<org.springframework.boot.gradle.tasks.run.BootRun> {
+    classpath = sourceSets["test"].runtimeClasspath
 }
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {

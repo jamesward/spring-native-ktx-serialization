@@ -1,5 +1,15 @@
 # Spring Native KTX Serialization
 
+Start a DB:
+```
+docker run --rm -ePOSTGRES_PASSWORD=password -p5432:5432 --name my-postgres postgres:13.1
+```
+
+Init the DB:
+```
+cat init.sql | docker exec -i my-postgres psql -U postgres
+```
+
 Start on JVM:
 ```
 ./gradlew :server:bootRun
