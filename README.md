@@ -12,12 +12,12 @@ cat init.sql | docker exec -i my-postgres psql -U postgres
 
 Start on JVM:
 ```
-./gradlew :server:bootRun
+./gradlew bootRun
 ```
 
 Or Spring Native:
 ```
-./gradlew :server:bootBuildImage --imageName=spring-native-ktx-serialization
+./gradlew bootBuildImage --imageName=spring-native-ktx-serialization
 docker run -it -p8080:8080 spring-native-ktx-serialization
 ```
 
